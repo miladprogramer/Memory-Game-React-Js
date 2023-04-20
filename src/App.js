@@ -17,12 +17,12 @@ const [choiseTwo,setChoiseTwo]=useState(null);
 const [turn,setTurn]=useState(0);
 
   const cardImages = [
-    { "src": helmet},
-    { "src": potion},
-    { "src": ring},
-    { "src": scroll},
-    { "src": shield},
-    { "src": sword}
+    { "src": helmet , matched:false},
+    { "src": potion,  matched:false},
+    { "src": ring , matched:false},
+    { "src": scroll , matched:false},
+    { "src": shield , matched:false},
+    { "src": sword,  matched:false}
   ]
 
   const shaflleCard=()=>{
@@ -44,6 +44,18 @@ const [turn,setTurn]=useState(0);
     if(choiseOne && choiseTwo){
       if(choiseOne.src===choiseTwo.src){
 console.log("Matched")
+setCards(prevCards =>{
+  return prevCards.map(card =>{
+    if(card.src===choiseOne.src){
+return {...card,matched:true}
+
+    }else{
+      return card;
+    }
+  })
+  
+})
+
 resetChoise()
       }else{
         console.log("Not Matched")
@@ -52,6 +64,7 @@ resetChoise()
     }
   }, [choiseOne,choiseTwo]);
 
+  console.log(cards)
   const resetChoise=()=>{
     setChoiseOne(null)
     setChoiseTwo(null)
