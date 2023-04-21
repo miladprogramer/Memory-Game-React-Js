@@ -1,6 +1,36 @@
 img{
-    width: 180px;
+    width: 190px;
     height: 180px;
     border: 1px solid white;
-    border-radius: 4px;
+    border-radius: 6px;
+    /* width: 100%;
+    display: block;
+    border: 1px solid #fff;
+    border-radius: 6px; */
 }
+.card{
+    position: relative;
+
+}
+.card .front{
+
+position: absolute;
+transform: rotateY(90deg);
+transition: all ease-in 0.2s;
+}
+.flipped .front{
+    transition-delay: 0.2s;
+    transform: rotateY(0deg);
+
+    }
+    .card .back{
+
+    
+        transition: all ease-in 0.2s;
+        transition-delay: 0.2s;
+        }
+        .flipped .back{
+            transition-delay: 0.2s;
+            transform: rotateY(90deg);
+        
+            }

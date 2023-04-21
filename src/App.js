@@ -15,6 +15,7 @@ const [cards,setCards]=useState([]);
 const [choiseOne,setChoiseOne]=useState(null);
 const [choiseTwo,setChoiseTwo]=useState(null);
 const [turn,setTurn]=useState(0);
+const [disabled,setDisabled]=useState(false);
 
   const cardImages = [
     { "src": helmet , matched:false},
@@ -33,6 +34,8 @@ const [turn,setTurn]=useState(0);
     ))
 
     setCards(shaflleCards);
+
+    setTurn(0)
     // console.log(cards)
   }
 
@@ -58,8 +61,7 @@ return {...card,matched:true}
 
 resetChoise()
       }else{
-        console.log("Not Matched")
-        resetChoise()
+        setTimeout(()=> resetChoise(),1000)
       }
     }
   }, [choiseOne,choiseTwo]);
@@ -82,7 +84,8 @@ resetChoise()
 {cards.map(card=>(
   (
   
-   <Card key={card.id} card={card} choiceSelect={choiceSelect}/>
+   <Card key={card.id} card={card} choiceSelect={choiceSelect}
+    flipped={card===choiseOne || card===choiseTwo || card.matched}/>
    
   )
 ))}
@@ -90,7 +93,7 @@ resetChoise()
 
 </div>
 
-
+<p>Turn: {turn}</p>
     </div>
     </>
     

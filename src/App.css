@@ -1,6 +1,6 @@
 .App{
 
-    max-width: 860px;
+    max-width: 830px;
     margin: 40px auto;
     color: white;
     text-align: center;
@@ -22,5 +22,7 @@ img{
     margin-top: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+row-gap: 10px;
+    column-gap: 10px;
    
 }

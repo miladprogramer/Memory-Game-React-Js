@@ -8,10 +8,10 @@ const handleClick=()=>{
 }
     return(
         <>
-         <div className='card'>
+         <div className={props.flipped ? "card flipped" : "card"}>
            
-    <img src={props.card.src}/>
-    <img src={backcover} onClick={handleClick}/>
+    <img src={props.card.src} className='front'/>
+    <img src={backcover} className='back' onClick={handleClick}/>
     </div>
         </>
     )
